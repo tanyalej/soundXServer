@@ -9,7 +9,7 @@ function connect() {
     
     mongoose.connect(mongoURI,options)
 
-    const {connection} = mongoose
+    const { connection } = mongoose
 
     connection.once('open',()=> console.log('Successfully connected'))
     connection.on('error', err => console.log('Connection error',err))
