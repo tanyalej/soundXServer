@@ -9,8 +9,13 @@ const userSchema = new Schema({
         match:[regExForEmail, 'Invalid email, please enter a valid email address'] ,
         validate: {
             async validator(email){
-                const user = await models.User.findOne({email})
-                return !user
+                try{
+                    const user = await models.User.findOne({email})
+                    return !user
+                }
+                catch(e){
+                    return false
+                }
             },
             message: 'The email entered is already in use',
         },
