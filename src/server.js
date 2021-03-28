@@ -28,11 +28,6 @@ app.get('/', auth, (req, res) => {
   res.send(`authenticated ${user}`)
 })
 
-app.get('/users', auth, (req, res) => {
-  const { user } = req
-  res.send(`authenticated ${user}`)
-})
-
 app.get('/products', auth, (req, res) => {
   const { user } = req
   res.send(`authenticated ${user}`)
