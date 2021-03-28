@@ -3,7 +3,7 @@ const { publish, buyRent } = require('../controllers/product.controller')
 const { formData } = require('../utils/formData')
 
 router.route('/buyRent').get(buyRent)
-router.route('/:userId').post(formData,publish)
+router.route('/publish').post(formData,publish)
 
 
 module.exports = router

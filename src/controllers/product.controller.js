@@ -4,9 +4,9 @@ const User = require('../models/user.model')
 module.exports = {
   async publish(req, res) {
     try {
-      const { body, params: { userId } } = req
-      const product = await Product.create({ ...body, user: userId , picture: body.picture.secure_url})
-      const user = await User.findById(userId)
+      const { body } = req
+      const product = await Product.create({ ...body, picture: body.picture.secure_url})
+      const user = await User.findById(body.user)
 
       user.products.push(product._id)
       await user.save({ validateBeforeSave: false })
