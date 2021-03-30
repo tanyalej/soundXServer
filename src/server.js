@@ -1,7 +1,7 @@
 require('dotenv').config()
 const express = require('express')
 const cors = require ('cors')
-const morgan = requir('morgan')
+const morgan = require('morgan')
 const { connect } = require('./db')
 const userRouter = require('./routes/user')
 const productRouter = require('./routes/product')
@@ -21,11 +21,6 @@ app.use('/products', productRouter)
 
 app.get('/',(req,res)=>{
     res.send('Hello Sound X')
-})
-
-app.get('/', auth, (req, res) => {
-  const { user } = req
-  res.send(`authenticated ${user}`)
 })
 
 app.get('/products', auth, (req, res) => {
