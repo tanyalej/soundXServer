@@ -50,7 +50,6 @@ module.exports = {
     try {
       const { user } = req
       const selectedUser = await User.findById(user)
-      console.log('name: ', selectedUser.name, 'email: ', selectedUser.email)
       res.status(200).json({name:selectedUser.name, email:selectedUser.email })
     } catch(error) {
       res.status(400).json({ error })
